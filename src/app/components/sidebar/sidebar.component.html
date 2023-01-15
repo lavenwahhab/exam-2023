@@ -1,0 +1,93 @@
+<body [ngClass]="{'dark':theme == 'true'|| theme == true}">
+
+<nav class="sidebar" style="opacity: 1;"  [ngClass]="{'close':sidebar == 'true'|| sidebar == true}">
+    <header>
+      <div class="image-text">
+        <span class="image">
+          <img src="./favicon.ico" alt="">
+        </span>
+        <div class="header-text">
+          <span class="name">Dev Sys.</span>
+          <span class="profession">Web development</span>
+        </div>
+      </div>
+      <i class='bx bxs-chevron-right-circle toggle' (click)="sidebarChange()" ></i>
+
+    </header>
+    <div class="menu-bar">
+      <div class="menu">
+        <li class="search-box">
+            <i class='bx bx-search icon' ></i>
+           <input type="search" placeholder="Search ..." name="search" id="search">
+        </li>
+        <ul class="menu-links">
+          <li class="nav-link">
+            <a routerLink="/aspect-ratio">
+              <i class='bx bx-tachometer icon'></i>
+              <span class="text nav-text"> Aspect score</span>
+            </a>
+          </li>
+          <li class="nav-link">
+            <a routerLink="/benchmark">
+              <i class='bx bx-star icon' ></i>
+              <span class="text nav-text"> Benchmark</span>
+            </a>
+          </li>
+          <li class="nav-link">
+            <a href="#">
+              <i class='bx bxs-network-chart icon' ></i>
+              <span class="text nav-text"> Time series</span>
+            </a>
+          </li>
+          <li class="nav-link">
+            <a href="#">
+              <i class='bx bx-analyse icon' ></i>
+              <span class="text nav-text"> Driver analysis</span>
+            </a>
+          </li>
+          <li class="nav-link">
+            <a href="#">
+              <i class='bx bx-category icon' ></i>
+              <span class="text nav-text"> Aspect detail</span>
+            </a>
+          </li>
+
+          <li class="nav-link">
+            <a href="#">
+              <i class='bx bx-badge-check icon' ></i>
+              <span class="text nav-text"> Change dashboard</span>
+            </a>
+          </li>
+        
+        </ul>
+      </div>
+      <div class="bottom-content">
+     
+        <li class="nav-link">
+          <a href="#">
+            <i class='bx bx-log-out icon' ></i>
+            <span class="text nav-text"> Logout</span>
+          </a>
+        </li>
+        <li class="mode">
+          <div class="moon-sun">
+            <i *ngIf="theme == 'true'" class='bx bx-moon icon moon' ></i>
+            <i *ngIf="theme != 'true'" class='bx bx-sun icon sun' ></i>
+          </div>
+          <span *ngIf="theme == 'true'" class="mode-text text">Light mode</span>
+          <span *ngIf="theme != 'true'" class="mode-text text">Dark mode</span>
+          <div class="toggle-switch">
+            <span (click)="setTheme()" class="switch">
+
+            </span>
+          </div>
+        </li>
+      </div>
+    </div>
+  </nav>
+
+  <section class="home">
+    <router-outlet></router-outlet>
+  </section>
+
+</body>
